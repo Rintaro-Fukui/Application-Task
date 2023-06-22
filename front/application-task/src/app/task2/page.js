@@ -7,7 +7,7 @@ export default function task2() {
             <div className="container">
                 <br />
                 <div>
-                    <h2>06/21 課題2</h2>
+                    <h2>06/21 課題</h2>
                 </div>
                 <br />
                 <div className="field">
