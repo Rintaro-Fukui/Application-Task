@@ -12,7 +12,7 @@ export default function task1() {
 
     const onSubmit = (data) =>
         axios.post(
-            `http://127.0.0.1:8000/addition?n1=${data["n1"]}&n2=${data["n2"]}`
+            `http://127.0.0.1:8000/task1?n1=${data["n1"]}&n2=${data["n2"]}`
         ).then(response => {
             setResult(response.data.output.result);
         });
