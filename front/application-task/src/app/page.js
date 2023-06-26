@@ -1,23 +1,44 @@
-import Link from 'next/link'
-import '../../node_modules/bulma/bulma.sass';
+import Link from "next/link";
+import "../../node_modules/bulma/bulma.sass";
 
 export default function Home() {
+
   return (
     <div className="content">
-      <Link href="/task1">
-        <div class="tile is-parent">
-          <div class="tile is-child box">
-            <p class="subtitle">06/21 課題1</p>
+      <div className="container">
+        <br />
+        <Link href="/task1">
+          <div className="tile is-parent">
+            <div className="tile is-child box">
+              <p className="subtitle">06/21 課題1</p>
+            </div>
           </div>
-        </div>
-      </Link>
-      <Link href="/task2">
-        <div class="tile is-parent">
-          <div class="tile is-child box">
-            <p class="subtitle">06/21 課題2</p>
+        </Link>
+        <br />
+        <Link href="/task2">
+          <div className="tile is-parent">
+            <div className="tile is-child box">
+              <p className="subtitle">06/21 課題2</p>
+            </div>
           </div>
-        </div>
-      </Link>
+        </Link>
+        <br />
+        <Link href="/">
+          <div className="tile is-parent">
+            <div className="tile is-child box">
+              <p className="subtitle">coming soon...</p>
+            </div>
+          </div>
+        </Link>
+        <br />
+        <Link href="/">
+          <div className="tile is-parent">
+            <div className="tile is-child box">
+              <p className="subtitle">coming soon...</p>
+            </div>
+          </div>
+        </Link>
+      </div>
     </div>
   )
 }
