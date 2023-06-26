@@ -12,7 +12,7 @@ export default function task2() {
 
     const onSubmit = (data) =>
         axios.post(
-            `http://127.0.0.1:8000/addition?n1=${data["n1"]}&n2=${data["n2"]}`
+            `http://127.0.0.1:8000/task2?txt=${data["txt"]}`
         ).then(response => {
             setResult(response.data.output.result);
         });
@@ -31,18 +31,9 @@ export default function task2() {
                 <form className="field" onSubmit={handleSubmit(onSubmit)}>
                     <div className="tile is-parent">
                         <div className="tile is-child box">
-                            <label className="label">数値1</label>
+                            <label className="label">テキストを入力してください</label>
                             <div className="control">
-                                <input className="input" type="text" {...register("n1")} placeholder="任意の数値" />
-                            </div>
-                        </div>
-                    </div>
-                    <br />
-                    <div className="tile is-parent">
-                        <div className="tile is-child box">
-                            <label className="label">数値2</label>
-                            <div className="control">
-                                <input className="input" type="text" {...register("n2")} placeholder="任意の数値" />
+                                <input className="input" type="text" {...register("txt")} placeholder="任意の文字列" />
                             </div>
                         </div>
                     </div>
