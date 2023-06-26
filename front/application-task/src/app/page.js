@@ -30,14 +30,6 @@ export default function Home() {
             </div>
           </div>
         </Link>
-        <br />
-        <Link href="/">
-          <div className="tile is-parent">
-            <div className="tile is-child box">
-              <p className="subtitle">coming soon...</p>
-            </div>
-          </div>
-        </Link>
       </div>
     </div>
   )
