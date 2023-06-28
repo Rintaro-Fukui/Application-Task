@@ -23,7 +23,7 @@ export default function Home() {
           </div>
         </Link>
         <br />
-        <Link href="/">
+        <Link href="/task3">
           <div className="tile is-parent">
             <div className="tile is-child box">
               <p className="subtitle">06/28 課題1</p>
@@ -31,7 +31,7 @@ export default function Home() {
           </div>
         </Link>
         <br />
-        <Link href="/">
+        <Link href="/task4">
           <div className="tile is-parent">
             <div className="tile is-child box">
               <p className="subtitle">06/28 課題3</p>
@@ -46,6 +46,8 @@ export default function Home() {
             </div>
           </div>
         </Link>
+        <br />
+        <br />
       </div>
     </div>
   )
