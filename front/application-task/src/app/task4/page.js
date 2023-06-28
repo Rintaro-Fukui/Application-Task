@@ -33,7 +33,7 @@ export default function task1() {
                         <div className="tile is-child box">
                             <label className="label">画像ファイル</label>
                             <div className="control">
-                                <input className="input" type="text" {...register("n1")} placeholder="任意の数値" />
+                                <input className="input" type="file" {...register("n1")} placeholder="任意の数値" />
                             </div>
                         </div>
                     </div>

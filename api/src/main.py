@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 import re
 import numpy as np
@@ -77,3 +77,13 @@ async def task3(r:float, g:float, b:float):
             "result": result
             },
     }
+
+# 6/28 課題3
+# 入力画像と近しい画像を出力
+@app.post("/task4")
+async def task4(file: UploadFile = File(...)):
+    extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
+    if not extension:
+        return "Image must be jpg or png."
+    result = None
+    return {"input": None, "output": None}
