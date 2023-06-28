@@ -58,16 +58,15 @@ async def task2(txt:str):
 # 6/28 課題1
 # 任意の色が赤/黄/青のどれに近いかを判定
 @app.post("/task3")
-async def task2(r:float, g:float, b:float):
-    input_color = np.array([r, g, b])
-    base_color = np.array([
-        [255, 0, 0],
-        [255, 255, 0],
-        [0, 0, 255]
-        ])
+async def task3(r:float, g:float, b:float):
+    input_color = np.array([float(r), float(g), float(b)])
+    base_color = np.array([[255, 0, 0], [255, 255, 0], [0, 0, 255]])
     base_label = ["赤", "黄", "青"]
-
-    result = ""
+    cos_sim_list = []
+    for i in range(len(base_color)):
+        c = np.dot(input_color, base_color[i]) / (np.linalg.norm(input_color) * np.linalg.norm(base_color[i]))
+        cos_sim_list.append(c)
+    result = base_label[np.argmax(cos_sim_list)]
     return {
         "input":{"color": {
                 "r": r,
