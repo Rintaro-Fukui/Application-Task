@@ -1,9 +1,11 @@
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-import re
 import numpy as np
+import re
+from task4 import task4
 
 app = FastAPI()
+task4 = task4()
 
 origins = [
     "http://localhost:3000",
@@ -79,13 +81,15 @@ async def task3(r:float, g:float, b:float):
 @app.post("/task4")
 async def task4(file: UploadFile = File(...)):
     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
-
     if not extension:
         return "Image must be jpg or png."
+
+    contents = await file.read()
+    input_vector = task4.preprocessing(contents)
 
     result = None
 
     return {
         "input": None,
         "output": None,
-        }
+    }
