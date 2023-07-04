@@ -19,3 +19,7 @@ class task4:
         vector = vtr.vectorize(img)
 
         return vector
+
+    def cos_sim(self, vector):
+
+        return

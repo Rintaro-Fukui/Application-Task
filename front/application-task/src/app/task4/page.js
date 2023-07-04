@@ -5,14 +5,14 @@ import axios from "axios";
 import { useForm } from 'react-hook-form';
 import React, { useState } from "react";
 
-export default function task1() {
+export default function task4() {
 
     const [result, setResult] = useState([]);
     const { register, handleSubmit } = useForm();
 
     const onSubmit = (data) =>
         axios.post(
-            `http://127.0.0.1:8000/task1?n1=${data["n1"]}&n2=${data["n2"]}`
+            `http://127.0.0.1:8000/task1?file=${data["img"]}`
         ).then(response => {
             setResult(response.data.output.result);
         });
@@ -33,7 +33,7 @@ export default function task1() {
                         <div className="tile is-child box">
                             <label className="label">画像ファイル</label>
                             <div className="control">
-                                <input className="input" type="file" {...register("n1")} placeholder="任意の数値" />
+                                <input className="input" type="file" {...register("img")} placeholder="任意の数値" />
                             </div>
                         </div>
                     </div>
