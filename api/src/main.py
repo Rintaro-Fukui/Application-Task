@@ -2,10 +2,13 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 import numpy as np
 import re
-from task4 import task4
+import imgsim
+import cv2
+from io import BytesIO
+
+import task1 as t1
 
 app = FastAPI()
-task4 = task4()
 
 origins = [
     "http://localhost:3000",
@@ -30,7 +33,7 @@ async def root():
 # 任意の数を足し合わせる
 @app.post("/task1")
 async def task1(n1:float, n2:float):
-    result = float(n1) + float(n2)
+    result = t1.task1_(float(n1), float(n2))
 
     return {
         "input":{"n1": n1, "n2": n2},
@@ -84,12 +87,18 @@ async def task4(file: UploadFile = File(...)):
     if not extension:
         return "Image must be jpg or png."
 
+    # 画像ファイルの読み込み
     contents = await file.read()
-    input_vector = task4.preprocessing(contents)
+    nparr = np.fromstring(contents, np.uint8)
+    img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+
+    # ベクトルに変換
+    vtr = imgsim.Vectorizer()
+    vector = vtr.vectorize(img)
 
     result = None
 
     return {
         "input": None,
-        "output": None,
+        "output": "あああああ",
     }
