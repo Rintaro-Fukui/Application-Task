@@ -1,5 +1,7 @@
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from PIL import Image
+import base64
 from io import BytesIO
 
 import task1 as t1
@@ -83,7 +85,16 @@ async def task4(file: UploadFile = File(...)):
     # ベクトルに変換
     t4.img2vec()
 
+    # 最も類似度の高い画像を取得
+    path = t4.cosSim()
+    image: Image.Image = Image.open(path)
+    image = image.convert("RGB")
+    buffered = BytesIO()
+    image.save(buffered, format="JPEG")
+    img_str = base64.b64encode(buffered.getvalue())
+    img_src = f"data:image/jpeg;base64,{str(img_str)[2:-1]}"
+
     return {
-        "input": None,
-        "output": "あああああ",
+        "input": {"input_img": file.filename},
+        "output": {"output_img": {"name": path, "img": img_src}},
     }
