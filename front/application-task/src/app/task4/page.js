@@ -22,7 +22,7 @@ export default function task4() {
                 }
             }
         ).then(response => {
-            setResult(response.data.output);
+            setResult(response.data.output.output_img.img);
         })
     };
 
@@ -58,7 +58,9 @@ export default function task4() {
                 <br />
                 <div className="tile is-parent">
                     <div className="tile is-child box">
-                        <b>出力結果：{result}</b>
+                        <b>出力結果：</b>
+                        <b />
+                        <img className="image" src={result} height="120" />
                     </div>
                 </div>
                 <br />
