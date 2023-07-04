@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from "next/link";
 import '../../node_modules/bulma/bulma.sass';
 
 export const metadata = {
@@ -17,9 +18,11 @@ export default function RootLayout({ children }) {
         <div className="hero is-success">
           <div className="hero-body">
             <div className="container">
-              <h1 className="title">
-                AI Algorithm Design
-              </h1>
+              <Link href="/">
+                <h1 className="title">
+                  AI Algorithm Design
+                </h1>
+              </Link>
               <h2 className="subtitle is-6">
                 created by RintaroFukui（2122098）
               </h2>

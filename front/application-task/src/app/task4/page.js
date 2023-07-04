@@ -2,20 +2,29 @@
 import Link from "next/link";
 import "../../../node_modules/bulma/bulma.sass";
 import axios from "axios";
-import { useForm } from 'react-hook-form';
+import { useForm } from "react-hook-form";
 import React, { useState } from "react";
 
-export default function task1() {
+export default function task4() {
 
     const [result, setResult] = useState([]);
     const { register, handleSubmit } = useForm();
 
-    const onSubmit = (data) =>
+    const onSubmit = (data) =>{
+        const file = new FormData();
+        file.append("file", data["file"][0])
         axios.post(
-            `http://127.0.0.1:8000/task1?n1=${data["n1"]}&n2=${data["n2"]}`
+            "http://127.0.0.1:8000/task4", file,
+            {
+                headers: {
+                    "accept": "application/json",
+                    "Content-Type": "multipart/form-data"
+                }
+            }
         ).then(response => {
-            setResult(response.data.output.result);
-        });
+            setResult(response.data.output.output_img.img);
+        })
+    };
 
     return (
         <div className="content">
@@ -33,7 +42,7 @@ export default function task1() {
                         <div className="tile is-child box">
                             <label className="label">画像ファイル</label>
                             <div className="control">
-                                <input className="input" type="text" {...register("n1")} placeholder="任意の数値" />
+                                <input className="input" type="file" {...register("file")} placeholder="任意の画像ファイル" />
                             </div>
                         </div>
                     </div>
@@ -49,7 +58,9 @@ export default function task1() {
                 <br />
                 <div className="tile is-parent">
                     <div className="tile is-child box">
-                        <b>出力結果：{result}</b>
+                        <b>出力結果：</b>
+                        <b />
+                        <img className="image" src={result} height="120" />
                     </div>
                 </div>
                 <br />

@@ -5,7 +5,7 @@ import axios from "axios";
 import { useForm } from 'react-hook-form';
 import React, { useState } from "react";
 
-export default function task1() {
+export default function task3() {
 
     const [result, setResult] = useState([]);
     const { register, handleSubmit } = useForm();
