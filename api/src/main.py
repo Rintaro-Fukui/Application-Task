@@ -2,14 +2,12 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from io import BytesIO
 
-import utils
 import task1 as t1
 import task2 as t2
 import task3 as t3
-import task4 as t4
+from task4 import task4_
 
 app = FastAPI()
-t4 = t4.task4_()
 
 origins = [
     "http://localhost:3000",
@@ -71,6 +69,8 @@ async def task3(r:float, g:float, b:float):
 @app.post("/task4")
 async def task4(file: UploadFile = File(...)):
 
+    t4 = task4_()
+
     # 拡張子がjpegもしくはpngであるか判定
     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
     if not extension:
@@ -78,14 +78,10 @@ async def task4(file: UploadFile = File(...)):
 
     # 画像ファイルの読み込み
     contents = await file.read()
-    nparr = np.fromstring(contents, np.uint8)
-    img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+    t4.loadImage(contents)
 
     # ベクトルに変換
-    vtr = imgsim.Vectorizer()
-    vector = vtr.vectorize(img)
-
-    result = None
+    t4.img2vec()
 
     return {
         "input": None,
