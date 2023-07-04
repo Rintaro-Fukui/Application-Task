@@ -1,13 +1,15 @@
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-import re
 from io import BytesIO
 
+import utils
 import task1 as t1
 import task2 as t2
 import task3 as t3
+import task4 as t4
 
 app = FastAPI()
+t4 = t4.task4_()
 
 origins = [
     "http://localhost:3000",
@@ -68,6 +70,8 @@ async def task3(r:float, g:float, b:float):
 # 入力画像と近しい画像を出力
 @app.post("/task4")
 async def task4(file: UploadFile = File(...)):
+
+    # 拡張子がjpegもしくはpngであるか判定
     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
     if not extension:
         return "Image must be jpg or png."
