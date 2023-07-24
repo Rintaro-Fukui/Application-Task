@@ -9,7 +9,7 @@ class task4_():
     def __init__(self):
         self.img = None
         self.vector = None
-        self.df = pd.read_csv('../data/task4/img.csv', index_col=0)
+        self.df = pd.read_csv('./data/task4/img.csv', index_col=0)
 
     def loadImage(self, contents):
         nparr = np.fromstring(contents, np.uint8)
