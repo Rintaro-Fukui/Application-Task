@@ -23,7 +23,7 @@ export default function task1() {
                 <br />
                 <div className="tile is-parent">
                     <div className="tile is-child">
-                        <h2>07/05 課題4</h2>
+                        <h2>06/21 課題1</h2>
                         <p>GradioExample.ipynbを応用し、二つの数字を受け取り足し算した結果を返すWebアプリを構築すること。streamlitなどWebアプリケーションをつくるフレームワークで開発しても構わない。</p>
                     </div>
                 </div>
