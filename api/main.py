@@ -98,3 +98,9 @@ async def task4(file: UploadFile = File(...)):
         "input": {"input_img": file.filename},
         "output": {"output_img": {"name": path, "img": img_src}},
     }
+
+
+# 7/05 課題4
+@app.post("/task5")
+async def task5():
+    return
