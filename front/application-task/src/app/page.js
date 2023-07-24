@@ -39,6 +39,14 @@ export default function Home() {
           </div>
         </Link>
         <br />
+        <Link href="/task5">
+          <div className="tile is-parent">
+            <div className="tile is-child box">
+              <p className="subtitle">07/05 課題4</p>
+            </div>
+          </div>
+        </Link>
+        <br />
         <Link href="/">
           <div className="tile is-parent">
             <div className="tile is-child box">
