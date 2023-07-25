@@ -12,7 +12,7 @@ export default function task3() {
 
     const onSubmit = (data) =>
         axios.post(
-            `http://127.0.0.1:8000/task3?r=${data["r"]}&g=${data["g"]}&b=${data["b"]}`
+            `https://application-task-api.onrender.com/task3?r=${data["r"]}&g=${data["g"]}&b=${data["b"]}`
         ).then(response => {
             setResult(response.data.output.result);
         });

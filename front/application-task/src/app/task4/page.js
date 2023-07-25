@@ -14,7 +14,7 @@ export default function task4() {
         const file = new FormData();
         file.append("file", data["file"][0])
         axios.post(
-            "http://127.0.0.1:8000/task4", file,
+            "https://application-task-api.onrender.com/task4", file,
             {
                 headers: {
                     "accept": "application/json",

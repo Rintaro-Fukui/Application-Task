@@ -12,7 +12,7 @@ export default function task2() {
 
     const onSubmit = (data) =>
         axios.post(
-            `http://127.0.0.1:8000/task2?txt=${data["txt"]}`
+            `https://application-task-api.onrender.com/task2?txt=${data["txt"]}`
         ).then(response => {
             setResult(response.data.output.result);
         });
